@@ -1,0 +1,12 @@
+2021/11/16 23:17:01 - Kitchen - Start of run.
+2021/11/16 23:17:43 - trabajo - Start of job execution
+2021/11/16 23:17:43 - trabajo - Starting entry [Write to log]
+2021/11/16 23:17:43 -  - EXITO
+2021/11/16 23:17:43 - trabajo - Starting entry [Success]
+2021/11/16 23:17:43 - trabajo - Finished job entry [Success] (result=[true])
+2021/11/16 23:17:43 - trabajo - Finished job entry [Write to log] (result=[true])
+2021/11/16 23:17:43 - trabajo - Job execution finished
+2021/11/16 23:17:43 - Carte - Installing timer to purge stale objects after 1440 minutes.
+2021/11/16 23:17:43 - Kitchen - Finished!
+2021/11/16 23:17:43 - Kitchen - Start=2021/11/16 23:17:43.010, Stop=2021/11/16 23:17:43.381
+2021/11/16 23:17:43 - Kitchen - Processing ended after 0 seconds.

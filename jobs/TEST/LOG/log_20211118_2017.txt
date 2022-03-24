@@ -1,0 +1,12 @@
+2021/11/18 20:17:52 - Kitchen - Start of run.
+2021/11/18 20:18:34 - Trabajo - Start of job execution
+2021/11/18 20:18:34 - Trabajo - Starting entry [PRUEBA_PASO_LOG]
+2021/11/18 20:18:34 -  - PRUEBA CON EQUIPO DE PREESPECIALIZACION
+2021/11/18 20:18:34 - Trabajo - Starting entry [Success]
+2021/11/18 20:18:34 - Trabajo - Finished job entry [Success] (result=[true])
+2021/11/18 20:18:34 - Trabajo - Finished job entry [PRUEBA_PASO_LOG] (result=[true])
+2021/11/18 20:18:34 - Trabajo - Job execution finished
+2021/11/18 20:18:34 - Carte - Installing timer to purge stale objects after 1440 minutes.
+2021/11/18 20:18:34 - Kitchen - Finished!
+2021/11/18 20:18:34 - Kitchen - Start=2021/11/18 20:18:34.809, Stop=2021/11/18 20:18:34.986
+2021/11/18 20:18:34 - Kitchen - Processing ended after 0 seconds.
