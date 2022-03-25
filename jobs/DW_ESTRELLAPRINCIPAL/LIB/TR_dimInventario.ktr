@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>TR_tbClie02</name>
+    <name>TR_dimInventario</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -436,37 +436,13 @@
   </info>
   <notepads>
     <notepad>
-      <note>/* REGISTRO A TABLA DE VENDEDORES */
-Realiza la copia de tabla transaccional de vendedores</note>
+      <note>/* REGISTRO A DIMENSION VENDEDOR */
+Realiza un extracto y transformación de la tabla de vendedores para
+generar la dimensión de vendedor</note>
       <xloc>25</xloc>
       <yloc>25</yloc>
-      <width>289</width>
-      <heigth>42</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Sobre Eliminación:
-Para el ejercicio academico en cada proceso
-se eliminará el contenido de la tabla, en un 
-proceso laboral se debe generar un criterio
-de eliminación</note>
-      <xloc>175</xloc>
-      <yloc>350</yloc>
-      <width>243</width>
-      <heigth>90</heigth>
+      <width>365</width>
+      <heigth>58</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -534,57 +510,6 @@ de eliminación</note>
       </attribute>
     </attributes>
   </connection>
-  <connection>
-    <name>DB_OLTP</name>
-    <server>${db_oltp_host}</server>
-    <type>FIREBIRD</type>
-    <access>Native</access>
-    <database>${db_oltp_dbName}</database>
-    <port>${db_oltp_port}</port>
-    <username>${db_oltp_user}</username>
-    <password>${db_oltp_pass}</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>IS_CLUSTERED</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>PORT_NUMBER</code>
-        <attribute>${db_oltp_port}</attribute>
-      </attribute>
-      <attribute>
-        <code>PRESERVE_RESERVED_WORD_CASE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>QUOTE_ALL_FIELDS</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>USE_POOLING</code>
-        <attribute>N</attribute>
-      </attribute>
-    </attributes>
-  </connection>
   <order>
     <hop>
       <from>getDateSystem</from>
@@ -598,7 +523,7 @@ de eliminación</note>
     </hop>
     <hop>
       <from>getId</from>
-      <to>poblarTbClie02</to>
+      <to>poblarDimInventario</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -749,7 +674,7 @@ de eliminación</note>
         <currency/>
         <decimal/>
         <group/>
-        <nullif>TR_TBCLIE02</nullif>
+        <nullif>TR_DIMINVENTARIO</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -761,7 +686,7 @@ de eliminación</note>
         <currency/>
         <decimal/>
         <group/>
-        <nullif>TRANSFORMACION PARA CARGAR TABLA DE CLIENTES</nullif>
+        <nullif>TRANSFORMACION PARA CARGAR DIMENSION DE INVENTARIO</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -826,7 +751,7 @@ de eliminación</note>
     <single_statement>N</single_statement>
     <replace_variables>N</replace_variables>
     <quoteString>N</quoteString>
-    <sql>DELETE FROM TB_CLIE02</sql>
+    <sql>DELETE FROM DIM_INVENTARIO</sql>
     <set_params>N</set_params>
     <insert_field/>
     <update_field/>
@@ -859,9 +784,25 @@ de eliminación</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>DB_OLTP</connection>
+    <connection>DB_DW</connection>
     <rowlimit>0</rowlimit>
-    <sql>SELECT * FROM CLIE02;</sql>
+    <sql>SELECT 
+A.CVE_ART,
+A.DESCR,
+A.LIN_PROD,
+B.DESC_LIN,
+A.STOCK_MIN,
+A.EXIST,
+A.COSTO_PROM,
+A.ULT_COSTO,
+CASE 
+	WHEN A.TIPO_ELE = 'K' THEN 'KIT'  
+	WHEN A.TIPO_ELE = 'P' THEN 'PRODUCTO'  
+	WHEN A.TIPO_ELE = 'S' THEN 'SERVICIO' 
+END AS TIPO_ELE,
+A.STATUS
+FROM TB_INVE02 A
+LEFT JOIN TB_CLIN02 B ON A.LIN_PROD = B.CVE_LIN </sql>
     <outer_join>N</outer_join>
     <replace_vars>N</replace_vars>
     <parameter>
@@ -1104,7 +1045,7 @@ de eliminación</note>
     </GUI>
   </step>
   <step>
-    <name>poblarTbClie02</name>
+    <name>poblarDimInventario</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -1119,7 +1060,7 @@ de eliminación</note>
     <update_bypassed>Y</update_bypassed>
     <lookup>
       <schema/>
-      <table>TB_CLIE02</table>
+      <table>DIM_INVENTARIO</table>
       <key>
         <name>IDREGISTRO</name>
         <field>BI_ID_REGISTRO</field>
@@ -1127,403 +1068,53 @@ de eliminación</note>
         <name2/>
       </key>
       <value>
-        <name>CLAVE</name>
-        <rename>CLAVE</rename>
+        <name>CVE_ART</name>
+        <rename>CVE_ART</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>DESCR</name>
+        <rename>DESCR</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>LIN_PROD</name>
+        <rename>LIN_PROD</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>DESC_LIN</name>
+        <rename>DESC_LIN</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>STOCK_MIN</name>
+        <rename>STOCK_MIN</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>EXIST</name>
+        <rename>EXIST</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>COSTO_PROM</name>
+        <rename>COSTO_PROM</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>ULT_COSTO</name>
+        <rename>ULT_COSTO</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>TIPO_ELE</name>
+        <rename>Field10</rename>
         <update>N</update>
       </value>
       <value>
         <name>STATUS</name>
         <rename>STATUS</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>NOMBRE</name>
-        <rename>NOMBRE</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>RFC</name>
-        <rename>RFC</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>CALLE</name>
-        <rename>CALLE</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>NUMINT</name>
-        <rename>NUMINT</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>NUMEXT</name>
-        <rename>NUMEXT</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>CRUZAMIENTOS</name>
-        <rename>CRUZAMIENTOS</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>CRUZAMIENTOS2</name>
-        <rename>CRUZAMIENTOS2</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>COLONIA</name>
-        <rename>COLONIA</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>CODIGO</name>
-        <rename>CODIGO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>LOCALIDAD</name>
-        <rename>LOCALIDAD</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>MUNICIPIO</name>
-        <rename>MUNICIPIO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>ESTADO</name>
-        <rename>ESTADO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>PAIS</name>
-        <rename>PAIS</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>NACIONALIDAD</name>
-        <rename>NACIONALIDAD</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>REFERDIR</name>
-        <rename>REFERDIR</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>TELEFONO</name>
-        <rename>TELEFONO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>CLASIFIC</name>
-        <rename>CLASIFIC</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>FAX</name>
-        <rename>FAX</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>PAG_WEB</name>
-        <rename>PAG_WEB</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>CURP</name>
-        <rename>CURP</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>CVE_ZONA</name>
-        <rename>CVE_ZONA</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>IMPRIR</name>
-        <rename>IMPRIR</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>MAIL</name>
-        <rename>MAIL</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>NIVELSEC</name>
-        <rename>NIVELSEC</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>ENVIOSILEN</name>
-        <rename>ENVIOSILEN</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>EMAILPRED</name>
-        <rename>EMAILPRED</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>DIAREV</name>
-        <rename>DIAREV</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>DIAPAGO</name>
-        <rename>DIAPAGO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>CON_CREDITO</name>
-        <rename>CON_CREDITO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>DIASCRED</name>
-        <rename>DIASCRED</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>LIMCRED</name>
-        <rename>LIMCRED</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>SALDO</name>
-        <rename>SALDO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>LISTA_PREC</name>
-        <rename>LISTA_PREC</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>CVE_BITA</name>
-        <rename>CVE_BITA</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>ULT_PAGOD</name>
-        <rename>ULT_PAGOD</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>ULT_PAGOM</name>
-        <rename>ULT_PAGOM</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>ULT_PAGOF</name>
-        <rename>ULT_PAGOF</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>DESCUENTO</name>
-        <rename>DESCUENTO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>ULT_VENTAD</name>
-        <rename>ULT_VENTAD</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>ULT_COMPM</name>
-        <rename>ULT_COMPM</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>FCH_ULTCOM</name>
-        <rename>FCH_ULTCOM</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>VENTAS</name>
-        <rename>VENTAS</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>CVE_VEND</name>
-        <rename>CVE_VEND</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>CVE_OBS</name>
-        <rename>CVE_OBS</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>TIPO_EMPRESA</name>
-        <rename>TIPO_EMPRESA</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>MATRIZ</name>
-        <rename>MATRIZ</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>PROSPECTO</name>
-        <rename>PROSPECTO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>CALLE_ENVIO</name>
-        <rename>CALLE_ENVIO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>NUMINT_ENVIO</name>
-        <rename>NUMINT_ENVIO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>NUMEXT_ENVIO</name>
-        <rename>NUMEXT_ENVIO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>CRUZAMIENTOS_ENVIO</name>
-        <rename>CRUZAMIENTOS_ENVIO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>CRUZAMIENTOS_ENVIO2</name>
-        <rename>CRUZAMIENTOS_ENVIO2</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>COLONIA_ENVIO</name>
-        <rename>COLONIA_ENVIO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>LOCALIDAD_ENVIO</name>
-        <rename>LOCALIDAD_ENVIO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>MUNICIPIO_ENVIO</name>
-        <rename>MUNICIPIO_ENVIO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>ESTADO_ENVIO</name>
-        <rename>ESTADO_ENVIO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>PAIS_ENVIO</name>
-        <rename>PAIS_ENVIO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>CODIGO_ENVIO</name>
-        <rename>CODIGO_ENVIO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>CVE_ZONA_ENVIO</name>
-        <rename>CVE_ZONA_ENVIO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>REFERENCIA_ENVIO</name>
-        <rename>REFERENCIA_ENVIO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>CUENTA_CONTABLE</name>
-        <rename>CUENTA_CONTABLE</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>ADDENDAF</name>
-        <rename>ADDENDAF</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>ADDENDAD</name>
-        <rename>ADDENDAD</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>NAMESPACE</name>
-        <rename>NAMESPACE</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>METODODEPAGO</name>
-        <rename>METODODEPAGO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>NUMCTAPAGO</name>
-        <rename>NUMCTAPAGO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>MODELO</name>
-        <rename>MODELO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>DES_IMPU1</name>
-        <rename>DES_IMPU1</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>DES_IMPU2</name>
-        <rename>DES_IMPU2</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>DES_IMPU3</name>
-        <rename>DES_IMPU3</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>DES_IMPU4</name>
-        <rename>DES_IMPU4</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>DES_PER</name>
-        <rename>DES_PER</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>LAT_GENERAL</name>
-        <rename>LAT_GENERAL</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>LON_GENERAL</name>
-        <rename>LON_GENERAL</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>LAT_ENVIO</name>
-        <rename>LAT_ENVIO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>LON_ENVIO</name>
-        <rename>LON_ENVIO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>UUID</name>
-        <rename>UUID</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>VERSION_SINC</name>
-        <rename>VERSION_SINC</rename>
         <update>N</update>
       </value>
       <value>
@@ -1637,7 +1228,7 @@ de eliminación</note>
     </partitioning>
     <steps>
       <step>
-        <name>poblarTbClie02</name>
+        <name>poblarDimInventario</name>
         <CopyNr>0</CopyNr>
       </step>
     </steps>

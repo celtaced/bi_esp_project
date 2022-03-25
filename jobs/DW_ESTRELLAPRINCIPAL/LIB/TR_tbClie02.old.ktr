@@ -436,37 +436,12 @@
   </info>
   <notepads>
     <notepad>
-      <note>/* REGISTRO A TABLA DE VENDEDORES */
-Realiza la copia de tabla transaccional de vendedores</note>
+      <note>/* REGISTRO A TABLA DE CLIENTES */
+Realiza la copia de tabla transaccional de clientes</note>
       <xloc>25</xloc>
       <yloc>25</yloc>
-      <width>289</width>
+      <width>268</width>
       <heigth>42</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Sobre Eliminación:
-Para el ejercicio academico en cada proceso
-se eliminará el contenido de la tabla, en un 
-proceso laboral se debe generar un criterio
-de eliminación</note>
-      <xloc>175</xloc>
-      <yloc>350</yloc>
-      <width>243</width>
-      <heigth>90</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -587,66 +562,116 @@ de eliminación</note>
   </connection>
   <order>
     <hop>
-      <from>getDateSystem</from>
-      <to>getData</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>getData</from>
-      <to>getId</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>getId</from>
-      <to>poblarTbClie02</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>getIDRegistro</from>
-      <to>insertLog</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>getSysDatesStar</from>
-      <to>getIDRegistro</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>insertLog</from>
-      <to>waitStep</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>waitStep</from>
-      <to>getSysDateEnd</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>getSysDateEnd</from>
-      <to>updateLog</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>ParametroGenerales</from>
-      <to>Get variables</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Get variables</from>
-      <to>getSysDatesStar</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>GenerateParametros</from>
-      <to>cleanTable</to>
+      <to>getDateDW</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>getSystemDate</from>
+      <to>formatDates</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>formatDates</from>
+      <to>makeEvaluation</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>getDateDW</from>
+      <to>CheckNull</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>CheckNull</from>
+      <to>getSystemDate</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>cleanTable</from>
-      <to>getDateSystem</to>
+      <to>getData</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>getSysDate</from>
+      <to>getId</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>makeEvaluation</from>
+      <to>Borrar</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Borrar</from>
+      <to>cleanTable</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Borrar</from>
+      <to>Write to log</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Write to log</from>
+      <to>getData</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>getId</from>
+      <to>poblarTbClientes</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>waitData</from>
+      <to>getSysDate</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>getData</from>
+      <to>waitData</to>
       <enabled>Y</enabled>
     </hop>
   </order>
+  <step>
+    <name>CheckNull</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <replaceAllByValue/>
+    <replaceAllMask/>
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>MAX</name>
+        <value>2022-01-01 00:00:00.000</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>325</xloc>
+      <yloc>350</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>GenerateParametros</name>
     <type>RowGenerator</type>
@@ -692,125 +717,6 @@ de eliminación</note>
     </GUI>
   </step>
   <step>
-    <name>Get variables</name>
-    <type>GetVariable</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>ID_PROCESOGENERAL</name>
-        <variable>${V_ID_PROCESOGENERAL}</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>200</xloc>
-      <yloc>125</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>ParametroGenerales</name>
-    <type>RowGenerator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>ID_PROCESO</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>TR_TBCLIE02</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>ID_MENSAJE</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>TRANSFORMACION PARA CARGAR TABLA DE CLIENTES</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>ID_ESTADO_INICIAL</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>EN PROCESO</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>ID_ESTADO_FINAL</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>FINALIZADO</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <limit>1</limit>
-    <never_ending>N</never_ending>
-    <interval_in_ms>5000</interval_in_ms>
-    <row_time_field>now</row_time_field>
-    <last_time_field>FiveSecondsAgo</last_time_field>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>75</xloc>
-      <yloc>125</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>cleanTable</name>
     <type>ExecSQL</type>
     <description/>
@@ -826,7 +732,8 @@ de eliminación</note>
     <single_statement>N</single_statement>
     <replace_variables>N</replace_variables>
     <quoteString>N</quoteString>
-    <sql>DELETE FROM TB_CLIE02</sql>
+    <sql>DELETE FROM TB_CLIE02
+WHERE CAST(BI_ID_FECHA_REGISTRO AS DATE) = (SELECT MAX(CAST(BI_ID_FECHA_REGISTRO AS DATE)) FROM TB_CLIE02)</sql>
     <set_params>N</set_params>
     <insert_field/>
     <update_field/>
@@ -843,7 +750,86 @@ de eliminación</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>200</xloc>
+      <xloc>450</xloc>
+      <yloc>450</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>formatDates</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>DATE_SYS</name>
+        <rename>DATE_SYS</rename>
+        <type>Timestamp</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>dd/MM/yyyy</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>MAX</name>
+        <rename>DATE_DW</rename>
+        <type>Timestamp</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>dd/MM/yyyy</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>REG</name>
+        <rename>REG</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>575</xloc>
       <yloc>250</yloc>
       <draw>Y</draw>
     </GUI>
@@ -861,7 +847,7 @@ de eliminación</note>
     </partitioning>
     <connection>DB_OLTP</connection>
     <rowlimit>0</rowlimit>
-    <sql>SELECT * FROM CLIE02;</sql>
+    <sql>SELECT * FROM clie02;</sql>
     <outer_join>N</outer_join>
     <replace_vars>N</replace_vars>
     <parameter>
@@ -875,14 +861,14 @@ de eliminación</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>450</xloc>
-      <yloc>250</yloc>
+      <xloc>575</xloc>
+      <yloc>450</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>getDateSystem</name>
-    <type>SystemInfo</type>
+    <name>getDateDW</name>
+    <type>DBJoin</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -891,12 +877,13 @@ de eliminación</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <fields>
-      <field>
-        <name>SYSDATE</name>
-        <type>system date (variable)</type>
-      </field>
-    </fields>
+    <connection>DB_DW</connection>
+    <rowlimit>0</rowlimit>
+    <sql>SELECT MAX(BI_ID_FECHA_REGISTRO) FROM TB_CLIE02</sql>
+    <outer_join>N</outer_join>
+    <replace_vars>N</replace_vars>
+    <parameter>
+    </parameter>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -906,39 +893,8 @@ de eliminación</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>325</xloc>
+      <xloc>200</xloc>
       <yloc>250</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>getIDRegistro</name>
-    <type>RandomValue</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>ID_PROCESOESPECIFICO</name>
-        <type>random uuid</type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>450</xloc>
-      <yloc>125</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -968,14 +924,76 @@ de eliminación</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>575</xloc>
+      <xloc>825</xloc>
+      <yloc>450</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>getSysDate</name>
+    <type>SystemInfo</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>SYSDATE</name>
+        <type>system date (variable)</type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>700</xloc>
+      <yloc>450</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>getSystemDate</name>
+    <type>SystemInfo</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>DATE_SYS</name>
+        <type>system date (variable)</type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>450</xloc>
       <yloc>250</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>getSysDateEnd</name>
-    <type>SystemInfo</type>
+    <name>makeEvaluation</name>
+    <type>ScriptValueMod</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -984,10 +1002,28 @@ de eliminación</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+if (DATE_SYS.getMonth() > DATE_DW.getMonth() || DATE_SYS.getYear() > DATE_DW.getYear() )
+   valiacion = 0 // No requiere borrado
+else
+   valiacion = 1 // Requiere borrado
+</jsScript_script>
+      </jsScript>
+    </jsScripts>
     <fields>
       <field>
-        <name>SYSDATE_END</name>
-        <type>system date (variable)</type>
+        <name>valiacion</name>
+        <rename>VAL_DATES</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
       </field>
     </fields>
     <attributes/>
@@ -999,112 +1035,13 @@ de eliminación</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>825</xloc>
-      <yloc>125</yloc>
+      <xloc>700</xloc>
+      <yloc>250</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>getSysDatesStar</name>
-    <type>SystemInfo</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>SYSDATE_START</name>
-        <type>system date (variable)</type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>325</xloc>
-      <yloc>125</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>insertLog</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>DB_DW</connection>
-    <commit>100</commit>
-    <update_bypassed>Y</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>LOG</table>
-      <key>
-        <name>ID_PROCESOGENERAL</name>
-        <field>BI_ID_REGISTRO</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>BI_ID_REGISTRO</name>
-        <rename>ID_PROCESOESPECIFICO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>BI_ID_REGISTRO_PRINCIPAL</name>
-        <rename>ID_PROCESOGENERAL</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>BI_ID_FECHA_REGISTRO</name>
-        <rename>SYSDATE_START</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>BI_ID_PROCESO</name>
-        <rename>ID_PROCESO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>BI_ID_MESSAGE</name>
-        <rename>ID_MENSAJE</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>BI_ID_ESTADO</name>
-        <rename>ID_ESTADO_INICIAL</rename>
-        <update>N</update>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>575</xloc>
-      <yloc>125</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>poblarTbClie02</name>
+    <name>poblarTbClientes</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -1546,14 +1483,14 @@ de eliminación</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>700</xloc>
-      <yloc>250</yloc>
+      <xloc>1075</xloc>
+      <yloc>450</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>updateLog</name>
-    <type>InsertUpdate</type>
+    <name>Borrar</name>
+    <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1562,54 +1499,25 @@ de eliminación</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>DB_DW</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>LOG</table>
-      <key>
-        <name>ID_PROCESOESPECIFICO</name>
-        <field>BI_ID_REGISTRO</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>BI_ID_REGISTRO</name>
-        <rename>ID_PROCESOESPECIFICO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>BI_ID_REGISTRO_PRINCIPAL</name>
-        <rename>ID_PROCESOGENERAL</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>BI_ID_FECHA_REGISTRO</name>
-        <rename>SYSDATE_START</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>BI_ID_FECHA_FINALIZADO</name>
-        <rename>SYSDATE_END</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>BI_ID_PROCESO</name>
-        <rename>ID_PROCESO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>BI_ID_MESSAGE</name>
-        <rename>ID_MENSAJE</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>BI_ID_ESTADO</name>
-        <rename>ID_ESTADO_FINAL</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
+    <send_true_to>cleanTable</send_true_to>
+    <send_false_to>Write to log</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>VAL_DATES</leftvalue>
+        <function>=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>Integer</type>
+          <text>1</text>
+          <length>-1</length>
+          <precision>0</precision>
+          <isnull>N</isnull>
+          <mask>####0;-####0</mask>
+        </value>
+      </condition>
+    </compare>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1619,13 +1527,13 @@ de eliminación</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>950</xloc>
-      <yloc>125</yloc>
+      <xloc>825</xloc>
+      <yloc>250</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>waitStep</name>
+    <name>waitData</name>
     <type>BlockUntilStepsFinish</type>
     <description/>
     <distribute>Y</distribute>
@@ -1637,7 +1545,7 @@ de eliminación</note>
     </partitioning>
     <steps>
       <step>
-        <name>poblarTbClie02</name>
+        <name>getData</name>
         <CopyNr>0</CopyNr>
       </step>
     </steps>
@@ -1650,8 +1558,40 @@ de eliminación</note>
       </output>
     </remotesteps>
     <GUI>
+      <xloc>925</xloc>
+      <yloc>300</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Write to log</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <loglevel>log_level_basic</loglevel>
+    <displayHeader>Y</displayHeader>
+    <limitRows>N</limitRows>
+    <limitRowsNumber>0</limitRowsNumber>
+    <logmessage>no requiere</logmessage>
+    <fields>
+      </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>700</xloc>
-      <yloc>125</yloc>
+      <yloc>350</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
