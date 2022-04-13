@@ -394,7 +394,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>800</xloc>
+      <xloc>825</xloc>
       <yloc>200</yloc>
       <attributes_kjc/>
     </entry>
@@ -433,7 +433,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>700</xloc>
+      <xloc>725</xloc>
       <yloc>200</yloc>
       <attributes_kjc/>
     </entry>
@@ -473,7 +473,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>450</xloc>
-      <yloc>600</yloc>
+      <yloc>250</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -490,7 +490,7 @@ PROCESO ABORTADO
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>450</xloc>
-      <yloc>700</yloc>
+      <yloc>675</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -528,7 +528,7 @@ PROCESO ABORTADO
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>550</xloc>
+      <xloc>575</xloc>
       <yloc>100</yloc>
       <attributes_kjc/>
     </entry>
@@ -606,7 +606,7 @@ PROCESO ABORTADO
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>550</xloc>
+      <xloc>575</xloc>
       <yloc>200</yloc>
       <attributes_kjc/>
     </entry>
@@ -723,8 +723,8 @@ PROCESO ABORTADO
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>550</xloc>
-      <yloc>300</yloc>
+      <xloc>575</xloc>
+      <yloc>350</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -764,6 +764,123 @@ PROCESO ABORTADO
       <nr>0</nr>
       <xloc>325</xloc>
       <yloc>500</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>extCabezaFacturas</name>
+      <description/>
+      <type>TRANS</type>
+      <attributes/>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>${Internal.Entry.Current.Directory}/TR_extCabeceraFactura.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration>Pentaho local</run_configuration>
+      <suppress_result_data>N</suppress_result_data>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>575</xloc>
+      <yloc>500</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>tbParFactf02</name>
+      <description/>
+      <type>TRANS</type>
+      <attributes/>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>${Internal.Entry.Current.Directory}/TR_tbParFactf02.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration>Pentaho local</run_configuration>
+      <suppress_result_data>N</suppress_result_data>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>1</nr>
+      <xloc>325</xloc>
+      <yloc>600</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>extDetalleFactura</name>
+      <description/>
+      <type>TRANS</type>
+      <attributes/>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>${Internal.Entry.Current.Directory}/TR_extDetalleFactura.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration>Pentaho local</run_configuration>
+      <suppress_result_data>N</suppress_result_data>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>1</nr>
+      <xloc>575</xloc>
+      <yloc>600</yloc>
       <attributes_kjc/>
     </entry>
   </entries>
@@ -905,15 +1022,6 @@ PROCESO ABORTADO
     </hop>
     <hop>
       <from>dimInventario</from>
-      <to>updateSuccess</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>dimInventario</from>
       <to>updateAbort</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -932,7 +1040,16 @@ PROCESO ABORTADO
     </hop>
     <hop>
       <from>tbFactf02</from>
-      <to>dimCliente</to>
+      <to>updateAbort</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>dimInventario</from>
+      <to>extCabezaFacturas</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -940,9 +1057,63 @@ PROCESO ABORTADO
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>tbFactf02</from>
+      <from>extCabezaFacturas</from>
       <to>updateAbort</to>
       <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>tbFactf02</from>
+      <to>tbParFactf02</to>
+      <from_nr>0</from_nr>
+      <to_nr>1</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>tbParFactf02</from>
+      <to>dimCliente</to>
+      <from_nr>1</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>tbParFactf02</from>
+      <to>updateAbort</to>
+      <from_nr>1</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>extCabezaFacturas</from>
+      <to>extDetalleFactura</to>
+      <from_nr>0</from_nr>
+      <to_nr>1</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>extDetalleFactura</from>
+      <to>updateSuccess</to>
+      <from_nr>1</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>extDetalleFactura</from>
+      <to>updateAbort</to>
+      <from_nr>1</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>N</evaluation>

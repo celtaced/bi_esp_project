@@ -7,6 +7,6 @@ set minuto=%time:~3,2%
 set segundo=%time:~6,2%
 
 cd "C:\Apps\data-integration"
-call Kitchen.bat /file:C:\Apps\Jobs\PRUEBA\LIB\trabajo.kjb "-param:CUENTA=PentahoBot" -logfile=C:\Apps\Jobs\PRUEBA\LOG\logKettle_%anio%%mes%%dia%_%hora%%minuto%.txt
+call Kitchen.bat /file:C:\Apps\bi_esp_project\jobs\DW_ESTRELLAPRINCIPAL\LIB\JB_ESTRELLAPRINCIPAL.kjb "-param:CUENTA=PentahoBot" -logfile=C:\Apps\bi_esp_project\jobs\DW_ESTRELLAPRINCIPAL\LOG\logDW_%anio%%mes%%dia%_%hora%%minuto%.log
 pause
 exit
