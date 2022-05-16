@@ -1,0 +1,104 @@
+2022/05/01 00:54:56 - Kitchen - Start of run.
+2022/05/01 00:55:08 - JB_PREDICCION - Start of job execution
+2022/05/01 00:55:08 - JB_PREDICCION - Starting entry [RegistroInicial]
+2022/05/01 00:55:10 - RegistroInicial - Using run configuration [Pentaho local]
+2022/05/01 00:55:10 - RegistroInicial - Running transformation using the Kettle execution engine
+2022/05/01 00:55:10 - TR_RegistroInicial - Dispatching started for transformation [TR_RegistroInicial]
+2022/05/01 00:55:10 - ParametroGenerales.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/01 00:55:10 - getSysDate.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/01 00:55:10 - getIDRegistro.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/01 00:55:11 - setVariables.0 - Setting environment variables...
+2022/05/01 00:55:11 - setVariables.0 - Set variable V_ID_PROCESOGENERAL to value [a4d0094b-c91b-11ec-b06a-675298cd9e4d]
+2022/05/01 00:55:11 - setVariables.0 - Finished after 1 rows.
+2022/05/01 00:55:11 - setVariables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/01 00:55:11 - insertLog.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2022/05/01 00:55:11 - Carte - Installing timer to purge stale objects after 1440 minutes.
+2022/05/01 00:55:11 - JB_PREDICCION - Starting entry [Shell]
+2022/05/01 00:55:11 - Shell - Found 0 previous result rows
+2022/05/01 00:55:11 - Shell - Running on platform : Windows Server 2016
+2022/05/01 00:55:11 - Shell - Executing command : cmd.exe /C "C:\Users\PREESP~1\AppData\Local\Temp\2\kettle_a51130fc-c91b-11ec-b06a-675298cd9e4dshell.bat"
+2022/05/01 00:55:11 - Shell - The variable org.osgi.framework.system.packages.extra has been ignored from process builder environment. Please check kettle property SHELL_STEP_ENVIRONMENT_VARIABLES_TO_IGNORE. 
+2022/05/01 00:55:11 - Shell - (stdout) 
+2022/05/01 00:55:11 - Shell - (stdout) C:\Apps\bi_esp_project\jobs\DW_PREDICCIONVENTAS\LOG>"C:/Program Files/Python310/python.exe" c:/Apps/dbScript/PreVentas.py 
+2022/05/01 00:55:24 - Shell - ERROR (version 9.2.0.0-290, build 9.2.0.0-290 from 2021-06-02 06.36.08 by buildguy) : (stderr) C:\Program Files\Python310\lib\site-packages\pandas\io\sql.py:758: UserWarning: pandas only support SQLAlchemy connectable(engine/connection) ordatabase string URI or sqlite3 DBAPI2 connectionother DBAPI2 objects are not tested, please consider using SQLAlchemy
+2022/05/01 00:55:24 - Shell - ERROR (version 9.2.0.0-290, build 9.2.0.0-290 from 2021-06-02 06.36.08 by buildguy) : (stderr)   warnings.warn(
+2022/05/01 00:55:28 - Shell - (stdout)                        X    Y
+2022/05/01 00:55:28 - Shell - (stdout) FECHA_EMISION                
+2022/05/01 00:55:28 - Shell - (stdout) 2019-01-01     225230.97  856
+2022/05/01 00:55:28 - Shell - (stdout) 2019-02-01     152505.98  762
+2022/05/01 00:55:28 - Shell - (stdout) 2019-03-01     142619.38  681
+2022/05/01 00:55:28 - Shell - (stdout) 2019-04-01     186926.51  792
+2022/05/01 00:55:28 - Shell - (stdout) 2019-05-01     201205.56  798
+2022/05/01 00:55:28 - Shell - (stdout) Número de filas con missing values: 0.0
+2022/05/01 00:55:28 - Shell - (stdout) Fechas train : 2019-01-01 00:00:00 --- 2020-12-01 00:00:00  (n=24)
+2022/05/01 00:55:28 - Shell - (stdout) Fechas test  : 2021-01-01 00:00:00 --- 2021-12-01 00:00:00  (n=12)
+2022/05/01 00:55:29 - Shell - Command cmd.exe /C "C:\Users\PREESP~1\AppData\Local\Temp\2\kettle_a51130fc-c91b-11ec-b06a-675298cd9e4dshell.bat" has finished
+2022/05/01 00:55:29 - JB_PREDICCION - Starting entry [RegistroSuccess]
+2022/05/01 00:55:29 - RegistroSuccess - Using run configuration [Pentaho local]
+2022/05/01 00:55:29 - RegistroSuccess - Running transformation using the Kettle execution engine
+2022/05/01 00:55:29 - TR_RegistroUpdateSuccess - Dispatching started for transformation [TR_RegistroUpdateSuccess]
+2022/05/01 00:55:29 - ParametroGenerales.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/01 00:55:29 - Get variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/01 00:55:29 - getSysDate.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/01 00:55:29 - updateLog.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2022/05/01 00:55:29 - JB_PREDICCION - Starting entry [Success]
+2022/05/01 00:55:29 - JB_PREDICCION - Finished job entry [Success] (result=[true])
+2022/05/01 00:55:29 - JB_PREDICCION - Finished job entry [RegistroSuccess] (result=[true])
+2022/05/01 00:55:29 - JB_PREDICCION - Finished job entry [Shell] (result=[true])
+2022/05/01 00:55:29 - JB_PREDICCION - Finished job entry [RegistroInicial] (result=[true])
+2022/05/01 00:55:29 - JB_PREDICCION - Job execution finished
+2022/05/01 00:55:29 - Kitchen - Finished!
+2022/05/01 00:55:29 - Kitchen - Start=2022/05/01 00:55:08.919, Stop=2022/05/01 00:55:29.262
+2022/05/01 00:55:29 - Kitchen - Processing ended after 20 seconds.
+2022/05/01 01:20:26 - Kitchen - Start of run.
+2022/05/01 01:20:40 - JB_PREDICCION - Start of job execution
+2022/05/01 01:20:40 - JB_PREDICCION - Starting entry [RegistroInicial]
+2022/05/01 01:20:42 - RegistroInicial - Using run configuration [Pentaho local]
+2022/05/01 01:20:42 - RegistroInicial - Running transformation using the Kettle execution engine
+2022/05/01 01:20:42 - TR_RegistroInicial - Dispatching started for transformation [TR_RegistroInicial]
+2022/05/01 01:20:42 - ParametroGenerales.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/01 01:20:42 - getSysDate.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/01 01:20:42 - getIDRegistro.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/01 01:20:43 - setVariables.0 - Setting environment variables...
+2022/05/01 01:20:43 - setVariables.0 - Set variable V_ID_PROCESOGENERAL to value [35fdfe33-c91f-11ec-a568-b12feabb02eb]
+2022/05/01 01:20:43 - setVariables.0 - Finished after 1 rows.
+2022/05/01 01:20:43 - setVariables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/01 01:20:43 - insertLog.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2022/05/01 01:20:43 - Carte - Installing timer to purge stale objects after 1440 minutes.
+2022/05/01 01:20:43 - JB_PREDICCION - Starting entry [Shell]
+2022/05/01 01:20:43 - Shell - Found 0 previous result rows
+2022/05/01 01:20:43 - Shell - Running on platform : Windows Server 2016
+2022/05/01 01:20:43 - Shell - Executing command : cmd.exe /C "C:\Users\PREESP~1\AppData\Local\Temp\kettle_363a1cd4-c91f-11ec-a568-b12feabb02ebshell.bat"
+2022/05/01 01:20:43 - Shell - The variable org.osgi.framework.system.packages.extra has been ignored from process builder environment. Please check kettle property SHELL_STEP_ENVIRONMENT_VARIABLES_TO_IGNORE. 
+2022/05/01 01:20:43 - Shell - (stdout) 
+2022/05/01 01:20:43 - Shell - (stdout) C:\Apps\bi_esp_project\jobs\DW_PREDICCIONVENTAS\LOG>"C:/Program Files/Python310/python.exe" c:/Apps/dbScript/PreVentas.py 
+2022/05/01 01:20:56 - Shell - ERROR (version 9.2.0.0-290, build 9.2.0.0-290 from 2021-06-02 06.36.08 by buildguy) : (stderr) C:\Program Files\Python310\lib\site-packages\pandas\io\sql.py:758: UserWarning: pandas only support SQLAlchemy connectable(engine/connection) ordatabase string URI or sqlite3 DBAPI2 connectionother DBAPI2 objects are not tested, please consider using SQLAlchemy
+2022/05/01 01:20:56 - Shell - ERROR (version 9.2.0.0-290, build 9.2.0.0-290 from 2021-06-02 06.36.08 by buildguy) : (stderr)   warnings.warn(
+2022/05/01 01:21:01 - Shell - (stdout)                        X    Y
+2022/05/01 01:21:01 - Shell - (stdout) FECHA_EMISION                
+2022/05/01 01:21:01 - Shell - (stdout) 2019-01-01     225230.97  856
+2022/05/01 01:21:01 - Shell - (stdout) 2019-02-01     152505.98  762
+2022/05/01 01:21:01 - Shell - (stdout) 2019-03-01     142619.38  681
+2022/05/01 01:21:01 - Shell - (stdout) 2019-04-01     186926.51  792
+2022/05/01 01:21:01 - Shell - (stdout) 2019-05-01     201205.56  798
+2022/05/01 01:21:01 - Shell - (stdout) Número de filas con missing values: 0.0
+2022/05/01 01:21:01 - Shell - (stdout) Fechas train : 2019-01-01 00:00:00 --- 2020-12-01 00:00:00  (n=24)
+2022/05/01 01:21:01 - Shell - (stdout) Fechas test  : 2021-01-01 00:00:00 --- 2021-12-01 00:00:00  (n=12)
+2022/05/01 01:21:02 - Shell - Command cmd.exe /C "C:\Users\PREESP~1\AppData\Local\Temp\kettle_363a1cd4-c91f-11ec-a568-b12feabb02ebshell.bat" has finished
+2022/05/01 01:21:02 - JB_PREDICCION - Starting entry [RegistroSuccess]
+2022/05/01 01:21:02 - RegistroSuccess - Using run configuration [Pentaho local]
+2022/05/01 01:21:02 - RegistroSuccess - Running transformation using the Kettle execution engine
+2022/05/01 01:21:02 - TR_RegistroUpdateSuccess - Dispatching started for transformation [TR_RegistroUpdateSuccess]
+2022/05/01 01:21:02 - ParametroGenerales.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/01 01:21:02 - Get variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/01 01:21:02 - getSysDate.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/01 01:21:02 - updateLog.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2022/05/01 01:21:02 - JB_PREDICCION - Starting entry [Success]
+2022/05/01 01:21:02 - JB_PREDICCION - Finished job entry [Success] (result=[true])
+2022/05/01 01:21:02 - JB_PREDICCION - Finished job entry [RegistroSuccess] (result=[true])
+2022/05/01 01:21:02 - JB_PREDICCION - Finished job entry [Shell] (result=[true])
+2022/05/01 01:21:02 - JB_PREDICCION - Finished job entry [RegistroInicial] (result=[true])
+2022/05/01 01:21:02 - JB_PREDICCION - Job execution finished
+2022/05/01 01:21:02 - Kitchen - Finished!
+2022/05/01 01:21:02 - Kitchen - Start=2022/05/01 01:20:40.729, Stop=2022/05/01 01:21:02.491
+2022/05/01 01:21:02 - Kitchen - Processing ended after 21 seconds.

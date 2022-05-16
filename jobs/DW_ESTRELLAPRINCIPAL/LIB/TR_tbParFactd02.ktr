@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>TR_extDetalleFacturas</name>
+    <name>TR_tbParFactd02</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -436,13 +436,37 @@
   </info>
   <notepads>
     <notepad>
-      <note>/* REGISTRO A DIMENSION CLIENTE */
-Realiza un extracto y transformación de la tabla de clientes para
-generar la dimensión de tiempos</note>
+      <note>/* REGISTRO A TABLA DE FACTURACION02 */
+Realiza la copia de tabla transaccional de TIEMPOS</note>
       <xloc>25</xloc>
       <yloc>25</yloc>
-      <width>344</width>
-      <heigth>58</heigth>
+      <width>277</width>
+      <heigth>42</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Sobre Eliminación:
+Para el ejercicio academico en cada proceso
+se eliminará el contenido de la tabla, en un 
+proceso laboral se debe generar un criterio
+de eliminación</note>
+      <xloc>175</xloc>
+      <yloc>350</yloc>
+      <width>243</width>
+      <heigth>90</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -510,50 +534,76 @@ generar la dimensión de tiempos</note>
       </attribute>
     </attributes>
   </connection>
+  <connection>
+    <name>DB_OLTP</name>
+    <server>${db_oltp_host}</server>
+    <type>FIREBIRD</type>
+    <access>Native</access>
+    <database>${db_oltp_dbName}</database>
+    <port>${db_oltp_port}</port>
+    <username>${db_oltp_user}</username>
+    <password>${db_oltp_pass}</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>${db_oltp_port}</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
   <order>
     <hop>
       <from>getDateSystem</from>
       <to>getData</to>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
     </hop>
     <hop>
       <from>getData</from>
       <to>getId</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
-      <from>getId</from>
-      <to>poblarExtDetalleFacturas</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
-      <from>GenerateParametros</from>
-      <to>cleanTable</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
-      <from>cleanTable</from>
-      <to>getDateSystem</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
-      <from>Get variables</from>
-      <to>getSysDatesStar</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>ParametroGenerales</from>
-      <to>Get variables</to>
+      <from>getId</from>
+      <to>poblarTbParFactd02</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>getIDRegistro</from>
       <to>insertLog</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>getSysDateEnd</from>
-      <to>updateLog</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -572,8 +622,28 @@ generar la dimensión de tiempos</note>
       <enabled>Y</enabled>
     </hop>
     <hop>
+      <from>getSysDateEnd</from>
+      <to>updateLog</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>ParametroGenerales</from>
+      <to>Get variables</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get variables</from>
+      <to>getSysDatesStar</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>GenerateParametros</from>
-      <to>Dummy</to>
+      <to>cleanTable</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>cleanTable</from>
+      <to>getDateSystem</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -596,7 +666,7 @@ generar la dimensión de tiempos</note>
         <currency/>
         <decimal/>
         <group/>
-        <nullif>Poblar Tabla Clientes</nullif>
+        <nullif>Poblar Tabla Facturacion</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -679,7 +749,7 @@ generar la dimensión de tiempos</note>
         <currency/>
         <decimal/>
         <group/>
-        <nullif>EXT_DETALLEFACTURAS</nullif>
+        <nullif>TR_PARFACTD02</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -691,7 +761,7 @@ generar la dimensión de tiempos</note>
         <currency/>
         <decimal/>
         <group/>
-        <nullif>TRANSFORMACION PARA CARGAR EXTRACTO DE DETALLE DE FACTURAS</nullif>
+        <nullif>TRANSFORMACION PARA CARGAR TABLA DE FACTURACION</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -756,7 +826,7 @@ generar la dimensión de tiempos</note>
     <single_statement>N</single_statement>
     <replace_variables>N</replace_variables>
     <quoteString>N</quoteString>
-    <sql>DELETE FROM EXT_DETALLEFACTURAS</sql>
+    <sql>DELETE FROM TB_PAR_FACTD02</sql>
     <set_params>N</set_params>
     <insert_field/>
     <update_field/>
@@ -789,25 +859,9 @@ generar la dimensión de tiempos</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>DB_DW</connection>
+    <connection>DB_OLTP</connection>
     <rowlimit>0</rowlimit>
-    <sql>SELECT *
-FROM (
-	SELECT 
-		CVE_DOC NUMERO_DOCUMENTO,
-		NUM_PAR NUMERO_REGISTRO,
-		CVE_ART CODIGO_ARTICULO,
-		TIPO_PROD TIPO_PRODUCTO,
-		CANT CANTIDAD,
-		UNI_VENTA UNIDAD,
-		COST COSTO,
-		PREC PRECIO,
-		(CANT * PREC) SUBTOTAL,
-		TOTIMP4 IVA,
-		((CANT * PREC)*(DESC1/100)) DESCUENTO,
-		(((CANT * PREC) - ((CANT * PREC)*(DESC1/100))) + TOTIMP4) TOTAL
-	FROM TB_PAR_FACTF02 
-)</sql>
+    <sql>SELECT * FROM PAR_FACTD02;</sql>
     <outer_join>N</outer_join>
     <replace_vars>N</replace_vars>
     <parameter>
@@ -1050,7 +1104,7 @@ FROM (
     </GUI>
   </step>
   <step>
-    <name>poblarExtDetalleFacturas</name>
+    <name>poblarTbParFactd02</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -1065,7 +1119,7 @@ FROM (
     <update_bypassed>Y</update_bypassed>
     <lookup>
       <schema/>
-      <table>EXT_DETALLEFACTURAS</table>
+      <table>TB_PAR_FACTD02</table>
       <key>
         <name>IDREGISTRO</name>
         <field>BI_ID_REGISTRO</field>
@@ -1073,63 +1127,233 @@ FROM (
         <name2/>
       </key>
       <value>
-        <name>NUMERO_DOCUMENTO</name>
+        <name>CVE_DOC</name>
         <rename>CVE_DOC</rename>
         <update>N</update>
       </value>
       <value>
-        <name>NUMERO_REGISTRO</name>
+        <name>NUM_PAR</name>
         <rename>NUM_PAR</rename>
         <update>N</update>
       </value>
       <value>
-        <name>CODIGO_ARTICULO</name>
+        <name>CVE_ART</name>
         <rename>CVE_ART</rename>
         <update>N</update>
       </value>
       <value>
-        <name>TIPO_PRODUCTO</name>
-        <rename>TIPO_PROD</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>CANTIDAD</name>
+        <name>CANT</name>
         <rename>CANT</rename>
         <update>N</update>
       </value>
       <value>
-        <name>UNIDAD</name>
-        <rename>UNI_VENTA</rename>
+        <name>PXS</name>
+        <rename>PXS</rename>
         <update>N</update>
       </value>
       <value>
-        <name>COSTO</name>
-        <rename>COST</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>PRECIO</name>
+        <name>PREC</name>
         <rename>PREC</rename>
         <update>N</update>
       </value>
       <value>
-        <name>SUBTOTAL</name>
-        <rename>Field10</rename>
+        <name>COST</name>
+        <rename>COST</rename>
         <update>N</update>
       </value>
       <value>
-        <name>IVA</name>
+        <name>IMPU1</name>
+        <rename>IMPU1</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>IMPU2</name>
+        <rename>IMPU2</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>IMPU3</name>
+        <rename>IMPU3</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>IMPU4</name>
+        <rename>IMPU4</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>IMP1APLA</name>
+        <rename>IMP1APLA</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>IMP2APLA</name>
+        <rename>IMP2APLA</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>IMP3APLA</name>
+        <rename>IMP3APLA</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>IMP4APLA</name>
+        <rename>IMP4APLA</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>TOTIMP1</name>
+        <rename>TOTIMP1</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>TOTIMP2</name>
+        <rename>TOTIMP2</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>TOTIMP3</name>
+        <rename>TOTIMP3</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>TOTIMP4</name>
         <rename>TOTIMP4</rename>
         <update>N</update>
       </value>
       <value>
-        <name>DESCUENTO</name>
-        <rename>Field12</rename>
+        <name>DESC1</name>
+        <rename>DESC1</rename>
         <update>N</update>
       </value>
       <value>
-        <name>TOTAL</name>
-        <rename>Field13</rename>
+        <name>DESC2</name>
+        <rename>DESC2</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>DESC3</name>
+        <rename>DESC3</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>COMI</name>
+        <rename>COMI</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>APAR</name>
+        <rename>APAR</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>ACT_INV</name>
+        <rename>ACT_INV</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>NUM_ALM</name>
+        <rename>NUM_ALM</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>POLIT_APLI</name>
+        <rename>POLIT_APLI</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>TIP_CAM</name>
+        <rename>TIP_CAM</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>UNI_VENTA</name>
+        <rename>UNI_VENTA</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>TIPO_PROD</name>
+        <rename>TIPO_PROD</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>CVE_OBS</name>
+        <rename>CVE_OBS</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>REG_SERIE</name>
+        <rename>REG_SERIE</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>E_LTPD</name>
+        <rename>E_LTPD</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>TIPO_ELEM</name>
+        <rename>TIPO_ELEM</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>NUM_MOV</name>
+        <rename>NUM_MOV</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>TOT_PARTIDA</name>
+        <rename>TOT_PARTIDA</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>IMPRIMIR</name>
+        <rename>IMPRIMIR</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>UUID</name>
+        <rename>UUID</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>VERSION_SINC</name>
+        <rename>VERSION_SINC</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>MAN_IEPS</name>
+        <rename>MAN_IEPS</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>APL_MAN_IMP</name>
+        <rename>APL_MAN_IMP</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>CUOTA_IEPS</name>
+        <rename>CUOTA_IEPS</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>APL_MAN_IEPS</name>
+        <rename>APL_MAN_IEPS</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>MTO_PORC</name>
+        <rename>MTO_PORC</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>MTO_CUOTA</name>
+        <rename>MTO_CUOTA</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>CVE_ESQ</name>
+        <rename>CVE_ESQ</rename>
         <update>N</update>
       </value>
       <value>
@@ -1243,7 +1467,7 @@ FROM (
     </partitioning>
     <steps>
       <step>
-        <name>Dummy</name>
+        <name>poblarTbParFactd02</name>
         <CopyNr>0</CopyNr>
       </step>
     </steps>
@@ -1258,31 +1482,6 @@ FROM (
     <GUI>
       <xloc>700</xloc>
       <yloc>125</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Dummy</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>150</xloc>
-      <yloc>325</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

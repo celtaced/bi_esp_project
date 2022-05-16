@@ -1,0 +1,303 @@
+2022/05/05 23:02:25 - Kitchen - Start of run.
+2022/05/05 23:02:52 - JB_ESTRELLAPRINCIPAL - Start of job execution
+2022/05/05 23:02:52 - JB_ESTRELLAPRINCIPAL - Starting entry [RegLog]
+2022/05/05 23:02:54 - RegLog - Using run configuration [Pentaho local]
+2022/05/05 23:02:54 - RegLog - Running transformation using the Kettle execution engine
+2022/05/05 23:02:54 - TR_RegistroInicial - Dispatching started for transformation [TR_RegistroInicial]
+2022/05/05 23:02:54 - ParametroGenerales.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:02:54 - getSysDate.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:02:54 - getIDRegistro.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:02:55 - setVariables.0 - Setting environment variables...
+2022/05/05 23:02:55 - setVariables.0 - Set variable V_ID_PROCESOGENERAL to value [c9da42b0-ccf9-11ec-8850-71079c247e71]
+2022/05/05 23:02:55 - setVariables.0 - Finished after 1 rows.
+2022/05/05 23:02:55 - setVariables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:02:55 - insertLog.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2022/05/05 23:02:55 - Carte - Installing timer to purge stale objects after 1440 minutes.
+2022/05/05 23:02:55 - JB_ESTRELLAPRINCIPAL - Starting entry [tbClie02]
+2022/05/05 23:02:55 - tbClie02 - Using run configuration [Pentaho local]
+2022/05/05 23:02:55 - tbClie02 - Running transformation using the Kettle execution engine
+2022/05/05 23:02:55 - TR_tbClie02 - Dispatching started for transformation [TR_tbClie02]
+2022/05/05 23:03:00 - GenerateParametros.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:03:00 - ParametroGenerales.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:03:00 - getDateSystem.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:00 - cleanTable.0 - Finished reading query, closing connection.
+2022/05/05 23:03:00 - Get variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:00 - getSysDatesStar.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:00 - cleanTable.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:03:00 - getIDRegistro.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:00 - insertLog.0 - Finished processing (I=1, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:00 - getData.0 - Finished processing (I=4727, O=0, R=1, W=4726, U=0, E=0)
+2022/05/05 23:03:00 - getId.0 - Finished processing (I=0, O=0, R=4726, W=4726, U=0, E=0)
+2022/05/05 23:03:11 - poblarTbClie02.0 - Finished processing (I=4726, O=4726, R=4726, W=4726, U=0, E=0)
+2022/05/05 23:03:11 - waitStep.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:11 - getSysDateEnd.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:11 - updateLog.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:11 - JB_ESTRELLAPRINCIPAL - Starting entry [tbVend02]
+2022/05/05 23:03:11 - tbVend02 - Using run configuration [Pentaho local]
+2022/05/05 23:03:11 - tbVend02 - Running transformation using the Kettle execution engine
+2022/05/05 23:03:11 - TR_tbVend02 - Dispatching started for transformation [TR_tbVend02]
+2022/05/05 23:03:12 - ParametroGenerales.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:03:12 - GenerateParametros.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:03:12 - getDateSystem.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:12 - getSysDatesStar.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:12 - Get variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:12 - cleanTable.0 - Finished reading query, closing connection.
+2022/05/05 23:03:12 - getIDRegistro.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:12 - insertLog.0 - Finished processing (I=1, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:12 - getData.0 - Finished processing (I=10, O=0, R=1, W=9, U=0, E=0)
+2022/05/05 23:03:12 - cleanTable.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:03:12 - getId.0 - Finished processing (I=0, O=0, R=9, W=9, U=0, E=0)
+2022/05/05 23:03:12 - poblarTbVend02.0 - Finished processing (I=9, O=9, R=9, W=9, U=0, E=0)
+2022/05/05 23:03:12 - waitStep.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:12 - getSysDateEnd.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:12 - updateLog.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:12 - JB_ESTRELLAPRINCIPAL - Starting entry [trTbInve02]
+2022/05/05 23:03:12 - trTbInve02 - Using run configuration [Pentaho local]
+2022/05/05 23:03:12 - trTbInve02 - Running transformation using the Kettle execution engine
+2022/05/05 23:03:12 - TR_tbInve02 - Dispatching started for transformation [TR_tbInve02]
+2022/05/05 23:03:13 - GenerateParametros.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:03:13 - insertLog.0 - Finished processing (I=1, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:13 - getIDRegistro.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:13 - getSysDatesStar.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:13 - Get variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:13 - cleanTable.0 - Finished reading query, closing connection.
+2022/05/05 23:03:13 - getDateSystem.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:13 - ParametroGenerales.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:03:13 - cleanTable.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:03:13 - getData.0 - Finished processing (I=1821, O=0, R=1, W=1820, U=0, E=0)
+2022/05/05 23:03:13 - getId.0 - Finished processing (I=0, O=0, R=1820, W=1820, U=0, E=0)
+2022/05/05 23:03:16 - poblarTbInve02.0 - Finished processing (I=1820, O=1820, R=1820, W=1820, U=0, E=0)
+2022/05/05 23:03:16 - waitStep.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:16 - getSysDateEnd.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:16 - updateLog.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:16 - JB_ESTRELLAPRINCIPAL - Starting entry [tbClin02]
+2022/05/05 23:03:16 - tbClin02 - Using run configuration [Pentaho local]
+2022/05/05 23:03:16 - tbClin02 - Running transformation using the Kettle execution engine
+2022/05/05 23:03:16 - TR_tbClin02 - Dispatching started for transformation [TR_tbClin02]
+2022/05/05 23:03:17 - cleanTable.0 - Finished reading query, closing connection.
+2022/05/05 23:03:17 - getDateSystem.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:17 - GenerateParametros.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:03:17 - ParametroGenerales.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:03:17 - cleanTable.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:03:17 - Get variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:17 - getSysDatesStar.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:17 - getIDRegistro.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:17 - insertLog.0 - Finished processing (I=1, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:17 - getData.0 - Finished processing (I=447, O=0, R=1, W=446, U=0, E=0)
+2022/05/05 23:03:17 - getId.0 - Finished processing (I=0, O=0, R=446, W=446, U=0, E=0)
+2022/05/05 23:03:19 - poblarTbClin02.0 - Finished processing (I=446, O=446, R=446, W=446, U=0, E=0)
+2022/05/05 23:03:19 - waitStep.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:19 - getSysDateEnd.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:19 - updateLog.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:19 - JB_ESTRELLAPRINCIPAL - Starting entry [tbFactf02]
+2022/05/05 23:03:20 - tbFactf02 - Using run configuration [Pentaho local]
+2022/05/05 23:03:20 - tbFactf02 - Running transformation using the Kettle execution engine
+2022/05/05 23:03:20 - TR_tbClin02 - Dispatching started for transformation [TR_tbClin02]
+2022/05/05 23:03:36 - ParametroGenerales.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:03:36 - cleanTable.0 - Finished reading query, closing connection.
+2022/05/05 23:03:36 - cleanTable.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:03:36 - GenerateParametros.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:03:36 - getDateSystem.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:36 - Get variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:36 - getSysDatesStar.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:36 - getIDRegistro.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:37 - insertLog.0 - Finished processing (I=1, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:03:58 - getData.0 - Finished processing (I=30921, O=0, R=1, W=30920, U=0, E=0)
+2022/05/05 23:04:17 - getId.0 - Finished processing (I=0, O=0, R=30920, W=30920, U=0, E=0)
+2022/05/05 23:04:35 - poblarTbFactf02.0 - Finished processing (I=30920, O=30920, R=30920, W=30920, U=0, E=0)
+2022/05/05 23:04:35 - waitStep.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:04:35 - getSysDateEnd.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:04:36 - updateLog.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2022/05/05 23:04:36 - JB_ESTRELLAPRINCIPAL - Starting entry [tbParFactf02]
+2022/05/05 23:04:36 - tbParFactf02 - Using run configuration [Pentaho local]
+2022/05/05 23:04:36 - tbParFactf02 - Running transformation using the Kettle execution engine
+2022/05/05 23:04:36 - TR_tbParFactf02 - Dispatching started for transformation [TR_tbParFactf02]
+2022/05/05 23:04:53 - ParametroGenerales.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:04:53 - GenerateParametros.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:04:53 - cleanTable.0 - Finished reading query, closing connection.
+2022/05/05 23:04:53 - Get variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:04:53 - getDateSystem.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:04:53 - cleanTable.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:04:53 - getSysDatesStar.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:04:53 - getIDRegistro.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:04:53 - insertLog.0 - Finished processing (I=1, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:07:06 - poblarTbParFactf02.0 - linenr 50000
+2022/05/05 23:10:41 - poblarTbParFactf02.0 - linenr 100000
+2022/05/05 23:12:49 - poblarTbParFactf02.0 - linenr 150000
+2022/05/05 23:14:34 - poblarTbParFactf02.0 - linenr 200000
+2022/05/05 23:16:44 - poblarTbParFactf02.0 - linenr 250000
+2022/05/05 23:18:30 - getData.0 - Finished processing (I=304810, O=0, R=1, W=304809, U=0, E=0)
+2022/05/05 23:18:53 - getId.0 - Finished processing (I=0, O=0, R=304809, W=304809, U=0, E=0)
+2022/05/05 23:19:05 - poblarTbParFactf02.0 - linenr 300000
+2022/05/05 23:19:16 - poblarTbParFactf02.0 - Finished processing (I=304809, O=304809, R=304809, W=304809, U=0, E=0)
+2022/05/05 23:19:16 - waitStep.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:19:17 - getSysDateEnd.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:19:18 - updateLog.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2022/05/05 23:19:21 - JB_ESTRELLAPRINCIPAL - Starting entry [tbPeriodos02]
+2022/05/05 23:19:28 - tbPeriodos02 - Using run configuration [Pentaho local]
+2022/05/05 23:19:28 - tbPeriodos02 - Running transformation using the Kettle execution engine
+2022/05/05 23:19:28 - TR_Periodos02 - Dispatching started for transformation [TR_Periodos02]
+2022/05/05 23:19:32 - getDateSystem.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:19:32 - GenerateParametros.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:19:32 - ParametroGenerales.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:19:32 - cleanTable.0 - Finished reading query, closing connection.
+2022/05/05 23:19:32 - Get variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:19:32 - getIDRegistro.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:19:32 - getSysDatesStar.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:19:32 - cleanTable.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:19:32 - insertLog.0 - Finished processing (I=1, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:19:32 - getData.0 - Finished processing (I=2429, O=0, R=1, W=2428, U=0, E=0)
+2022/05/05 23:19:32 - getId.0 - Finished processing (I=0, O=0, R=2428, W=2428, U=0, E=0)
+2022/05/05 23:20:15 - poblarTbPeriodos02.0 - Finished processing (I=2428, O=2428, R=2428, W=2428, U=0, E=0)
+2022/05/05 23:20:15 - waitStep.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:20:15 - getSysDateEnd.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:20:15 - updateLog.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2022/05/05 23:20:15 - JB_ESTRELLAPRINCIPAL - Starting entry [tbFactd02]
+2022/05/05 23:20:17 - tbFactd02 - Using run configuration [Pentaho local]
+2022/05/05 23:20:17 - tbFactd02 - Running transformation using the Kettle execution engine
+2022/05/05 23:20:17 - TR_Periodos02 - Dispatching started for transformation [TR_Periodos02]
+2022/05/05 23:20:20 - ParametroGenerales.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:20:20 - getIDRegistro.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:20:20 - getSysDatesStar.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:20:20 - Get variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:20:20 - cleanTable.0 - Finished reading query, closing connection.
+2022/05/05 23:20:20 - getDateSystem.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:20:20 - GenerateParametros.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:20:20 - cleanTable.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:20:20 - insertLog.0 - Finished processing (I=1, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:20:20 - getId.0 - Finished processing (I=0, O=0, R=4887, W=4887, U=0, E=0)
+2022/05/05 23:20:20 - getData.0 - Finished processing (I=4888, O=0, R=1, W=4887, U=0, E=0)
+2022/05/05 23:25:39 - poblarTbFactd02.0 - Finished processing (I=4887, O=4887, R=4887, W=4887, U=0, E=0)
+2022/05/05 23:25:39 - waitStep.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:25:39 - getSysDateEnd.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:25:39 - updateLog.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2022/05/05 23:25:39 - JB_ESTRELLAPRINCIPAL - Starting entry [dimCliente]
+2022/05/05 23:25:40 - dimCliente - Using run configuration [Pentaho local]
+2022/05/05 23:25:40 - dimCliente - Running transformation using the Kettle execution engine
+2022/05/05 23:25:40 - TR_dimCliente - Dispatching started for transformation [TR_dimCliente]
+2022/05/05 23:25:44 - ParametroGenerales.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:25:44 - GenerateParametros.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:25:44 - cleanTable.0 - Finished reading query, closing connection.
+2022/05/05 23:25:44 - Get variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:25:44 - getDateSystem.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:25:44 - getSysDatesStar.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:25:44 - getIDRegistro.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:25:44 - cleanTable.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:25:44 - insertLog.0 - Finished processing (I=1, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:25:46 - getData.0 - Finished processing (I=4727, O=0, R=1, W=4726, U=0, E=0)
+2022/05/05 23:25:46 - getId.0 - Finished processing (I=0, O=0, R=4726, W=4726, U=0, E=0)
+2022/05/05 23:25:52 - poblarDimCliente.0 - Finished processing (I=4726, O=4726, R=4726, W=4726, U=0, E=0)
+2022/05/05 23:25:52 - waitStep.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:25:52 - getSysDateEnd.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:25:52 - updateLog.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2022/05/05 23:25:52 - JB_ESTRELLAPRINCIPAL - Starting entry [dimVendedor]
+2022/05/05 23:25:52 - dimVendedor - Using run configuration [Pentaho local]
+2022/05/05 23:25:52 - dimVendedor - Running transformation using the Kettle execution engine
+2022/05/05 23:25:52 - TR_dimVendedor - Dispatching started for transformation [TR_dimVendedor]
+2022/05/05 23:25:52 - ParametroGenerales.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:25:52 - getIDRegistro.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:25:52 - getSysDatesStar.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:25:52 - Get variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:25:52 - getDateSystem.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:25:52 - cleanTable.0 - Finished reading query, closing connection.
+2022/05/05 23:25:52 - GenerateParametros.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:25:53 - insertLog.0 - Finished processing (I=1, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:25:53 - cleanTable.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:25:53 - getData.0 - Finished processing (I=10, O=0, R=1, W=9, U=0, E=0)
+2022/05/05 23:25:53 - getId.0 - Finished processing (I=0, O=0, R=9, W=9, U=0, E=0)
+2022/05/05 23:25:53 - poblarDimVendedor.0 - Finished processing (I=9, O=9, R=9, W=9, U=0, E=0)
+2022/05/05 23:25:53 - waitStep.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:25:53 - getSysDateEnd.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:25:53 - updateLog.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2022/05/05 23:25:53 - JB_ESTRELLAPRINCIPAL - Starting entry [dimInventario]
+2022/05/05 23:25:54 - dimInventario - Using run configuration [Pentaho local]
+2022/05/05 23:25:54 - dimInventario - Running transformation using the Kettle execution engine
+2022/05/05 23:25:54 - TR_dimInventario - Dispatching started for transformation [TR_dimInventario]
+2022/05/05 23:25:55 - GenerateParametros.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:25:55 - cleanTable.0 - Finished reading query, closing connection.
+2022/05/05 23:25:55 - ParametroGenerales.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:25:55 - getDateSystem.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:25:55 - cleanTable.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:25:55 - Get variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:25:55 - getIDRegistro.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:25:55 - getSysDatesStar.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:25:55 - insertLog.0 - Finished processing (I=1, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:25:56 - getData.0 - Finished processing (I=1821, O=0, R=1, W=1820, U=0, E=0)
+2022/05/05 23:25:56 - getId.0 - Finished processing (I=0, O=0, R=1820, W=1820, U=0, E=0)
+2022/05/05 23:25:58 - poblarDimInventario.0 - Finished processing (I=1820, O=1820, R=1820, W=1820, U=0, E=0)
+2022/05/05 23:25:58 - waitStep.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:25:58 - getSysDateEnd.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:25:58 - updateLog.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2022/05/05 23:25:58 - JB_ESTRELLAPRINCIPAL - Starting entry [extCabezaFacturas]
+2022/05/05 23:25:59 - extCabezaFacturas - Using run configuration [Pentaho local]
+2022/05/05 23:25:59 - extCabezaFacturas - Running transformation using the Kettle execution engine
+2022/05/05 23:25:59 - TR_extCabeceraFacturas - Dispatching started for transformation [TR_extCabeceraFacturas]
+2022/05/05 23:26:12 - GenerateParametros.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:26:12 - cleanTable.0 - Finished reading query, closing connection.
+2022/05/05 23:26:12 - ParametroGenerales.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:26:12 - cleanTable.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:26:12 - getDateSystem.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:26:12 - Get variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:26:12 - getSysDatesStar.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:26:12 - getIDRegistro.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:26:12 - insertLog.0 - Finished processing (I=1, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:26:23 - getData.0 - Finished processing (I=27697, O=0, R=1, W=27696, U=0, E=0)
+2022/05/05 23:26:35 - getId.0 - Finished processing (I=0, O=0, R=27696, W=27696, U=0, E=0)
+2022/05/05 23:26:47 - poblarExtCabecerasFacturas.0 - Finished processing (I=27696, O=27696, R=27696, W=27696, U=0, E=0)
+2022/05/05 23:26:47 - waitStep.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:26:47 - getSysDateEnd.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:26:47 - updateLog.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2022/05/05 23:26:47 - JB_ESTRELLAPRINCIPAL - Starting entry [extDetalleFactura]
+2022/05/05 23:26:47 - extDetalleFactura - Using run configuration [Pentaho local]
+2022/05/05 23:26:47 - extDetalleFactura - Running transformation using the Kettle execution engine
+2022/05/05 23:26:47 - TR_extDetalleFacturas - Dispatching started for transformation [TR_extDetalleFacturas]
+2022/05/05 23:27:55 - GenerateParametros.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:27:55 - cleanTable.0 - Finished reading query, closing connection.
+2022/05/05 23:27:55 - cleanTable.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:27:55 - getDateSystem.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:27:55 - ParametroGenerales.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:27:55 - Get variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:27:55 - getSysDatesStar.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:27:55 - getIDRegistro.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:27:55 - insertLog.0 - Finished processing (I=1, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:31:24 - poblarExtDetalleFacturas.0 - linenr 50000
+2022/05/05 23:32:43 - poblarExtDetalleFacturas.0 - linenr 100000
+2022/05/05 23:34:51 - poblarExtDetalleFacturas.0 - linenr 150000
+2022/05/05 23:36:20 - poblarExtDetalleFacturas.0 - linenr 200000
+2022/05/05 23:37:38 - poblarExtDetalleFacturas.0 - linenr 250000
+2022/05/05 23:38:24 - getData.0 - Finished processing (I=304810, O=0, R=1, W=304809, U=0, E=0)
+2022/05/05 23:38:36 - getId.0 - Finished processing (I=0, O=0, R=304809, W=304809, U=0, E=0)
+2022/05/05 23:38:42 - poblarExtDetalleFacturas.0 - linenr 300000
+2022/05/05 23:38:48 - poblarExtDetalleFacturas.0 - Finished processing (I=304809, O=304809, R=304809, W=304809, U=0, E=0)
+2022/05/05 23:38:49 - waitStep.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:38:49 - getSysDateEnd.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:38:49 - updateLog.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2022/05/05 23:38:50 - JB_ESTRELLAPRINCIPAL - Starting entry [updateSuccess]
+2022/05/05 23:38:53 - updateSuccess - Using run configuration [Pentaho local]
+2022/05/05 23:38:53 - updateSuccess - Running transformation using the Kettle execution engine
+2022/05/05 23:38:53 - TR_RegistroUpdateSuccess - Dispatching started for transformation [TR_RegistroUpdateSuccess]
+2022/05/05 23:38:54 - ParametroGenerales.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/05/05 23:38:54 - Get variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:38:54 - getSysDate.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/05/05 23:38:54 - updateLog.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2022/05/05 23:38:54 - JB_ESTRELLAPRINCIPAL - Starting entry [Success]
+2022/05/05 23:38:55 - JB_ESTRELLAPRINCIPAL - Finished job entry [Success] (result=[true])
+2022/05/05 23:38:55 - JB_ESTRELLAPRINCIPAL - Finished job entry [updateSuccess] (result=[true])
+2022/05/05 23:38:55 - JB_ESTRELLAPRINCIPAL - Finished job entry [extDetalleFactura] (result=[true])
+2022/05/05 23:38:55 - JB_ESTRELLAPRINCIPAL - Finished job entry [extCabezaFacturas] (result=[true])
+2022/05/05 23:38:55 - JB_ESTRELLAPRINCIPAL - Finished job entry [dimInventario] (result=[true])
+2022/05/05 23:38:55 - JB_ESTRELLAPRINCIPAL - Finished job entry [dimVendedor] (result=[true])
+2022/05/05 23:38:55 - JB_ESTRELLAPRINCIPAL - Finished job entry [dimCliente] (result=[true])
+2022/05/05 23:38:55 - JB_ESTRELLAPRINCIPAL - Finished job entry [tbFactd02] (result=[true])
+2022/05/05 23:38:55 - JB_ESTRELLAPRINCIPAL - Finished job entry [tbPeriodos02] (result=[true])
+2022/05/05 23:38:55 - JB_ESTRELLAPRINCIPAL - Finished job entry [tbParFactf02] (result=[true])
+2022/05/05 23:38:55 - JB_ESTRELLAPRINCIPAL - Finished job entry [tbFactf02] (result=[true])
+2022/05/05 23:38:55 - JB_ESTRELLAPRINCIPAL - Finished job entry [tbClin02] (result=[true])
+2022/05/05 23:38:55 - JB_ESTRELLAPRINCIPAL - Finished job entry [trTbInve02] (result=[true])
+2022/05/05 23:38:55 - JB_ESTRELLAPRINCIPAL - Finished job entry [tbVend02] (result=[true])
+2022/05/05 23:38:55 - JB_ESTRELLAPRINCIPAL - Finished job entry [tbClie02] (result=[true])
+2022/05/05 23:38:55 - JB_ESTRELLAPRINCIPAL - Finished job entry [RegLog] (result=[true])
+2022/05/05 23:38:55 - JB_ESTRELLAPRINCIPAL - Job execution finished
+2022/05/05 23:38:55 - Kitchen - Finished!
+2022/05/05 23:38:56 - Kitchen - Start=2022/05/05 23:02:52.292, Stop=2022/05/05 23:38:56.628
+2022/05/05 23:38:56 - Kitchen - Processing ended after 36 minutes and 4 seconds (2164 seconds total).

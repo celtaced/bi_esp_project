@@ -457,31 +457,6 @@ Realiza la copia de tabla transaccional de vendedores</note>
       <bordercolorblue>100</bordercolorblue>
       <drawshadow>Y</drawshadow>
     </notepad>
-    <notepad>
-      <note>Sobre Eliminación:
-Para el ejercicio academico en cada proceso
-se eliminará el contenido de la tabla, en un 
-proceso laboral se debe generar un criterio
-de eliminación</note>
-      <xloc>175</xloc>
-      <yloc>350</yloc>
-      <width>243</width>
-      <heigth>90</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
   <connection>
     <name>DB_DW</name>
@@ -589,17 +564,17 @@ de eliminación</note>
     <hop>
       <from>getDateSystem</from>
       <to>getData</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
     <hop>
       <from>getData</from>
       <to>getId</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
     <hop>
       <from>getId</from>
       <to>poblarTbParFactf02</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
     <hop>
       <from>getIDRegistro</from>
@@ -639,19 +614,49 @@ de eliminación</note>
     <hop>
       <from>GenerateParametros</from>
       <to>cleanTable</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
     <hop>
       <from>cleanTable</from>
       <to>getDateSystem</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>GenerateParametros</from>
+      <to>Dummy</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
+    <name>Dummy</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>200</xloc>
+      <yloc>325</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>GenerateParametros</name>
     <type>RowGenerator</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -1467,7 +1472,7 @@ de eliminación</note>
     </partitioning>
     <steps>
       <step>
-        <name>poblarTbParFactf02</name>
+        <name>Dummy</name>
         <CopyNr>0</CopyNr>
       </step>
     </steps>

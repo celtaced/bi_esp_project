@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>TR_extDetalleFacturas</name>
+    <name>TR_RegistroInicial</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -428,20 +427,20 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2022/03/22 18:54:09.920</created_date>
+    <created_date>2022/03/23 14:22:32.000</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2022/03/22 18:54:09.920</modified_date>
+    <modified_date>2022/03/23 14:22:32.000</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>/* REGISTRO A DIMENSION CLIENTE */
-Realiza un extracto y transformación de la tabla de clientes para
-generar la dimensión de tiempos</note>
+      <note>/* GENERACION DE LOG INICIAL */
+Esta transformación se encargará de generar un registro del trabajo al log principal}
+Este deberá ser actualizado si el proceso se finaliza o no.</note>
       <xloc>25</xloc>
       <yloc>25</yloc>
-      <width>344</width>
+      <width>447</width>
       <heigth>58</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
@@ -512,38 +511,13 @@ generar la dimensión de tiempos</note>
   </connection>
   <order>
     <hop>
-      <from>getDateSystem</from>
-      <to>getData</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
-      <from>getData</from>
-      <to>getId</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
-      <from>getId</from>
-      <to>poblarExtDetalleFacturas</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
-      <from>GenerateParametros</from>
-      <to>cleanTable</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
-      <from>cleanTable</from>
-      <to>getDateSystem</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
-      <from>Get variables</from>
-      <to>getSysDatesStar</to>
+      <from>ParametroGenerales</from>
+      <to>getSysDate</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>ParametroGenerales</from>
-      <to>Get variables</to>
+      <from>getSysDate</from>
+      <to>getIDRegistro</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -552,114 +526,11 @@ generar la dimensión de tiempos</note>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>getSysDateEnd</from>
-      <to>updateLog</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>getSysDatesStar</from>
-      <to>getIDRegistro</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>insertLog</from>
-      <to>waitStep</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>waitStep</from>
-      <to>getSysDateEnd</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>GenerateParametros</from>
-      <to>Dummy</to>
+      <to>setVariables</to>
       <enabled>Y</enabled>
     </hop>
   </order>
-  <step>
-    <name>GenerateParametros</name>
-    <type>RowGenerator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>REG</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>Poblar Tabla Clientes</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <limit>1</limit>
-    <never_ending>N</never_ending>
-    <interval_in_ms>5000</interval_in_ms>
-    <row_time_field>now</row_time_field>
-    <last_time_field>FiveSecondsAgo</last_time_field>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>75</xloc>
-      <yloc>250</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Get variables</name>
-    <type>GetVariable</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>ID_PROCESOGENERAL</name>
-        <variable>${V_ID_PROCESOGENERAL}</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>200</xloc>
-      <yloc>125</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
   <step>
     <name>ParametroGenerales</name>
     <type>RowGenerator</type>
@@ -679,7 +550,7 @@ generar la dimensión de tiempos</note>
         <currency/>
         <decimal/>
         <group/>
-        <nullif>EXT_DETALLEFACTURAS</nullif>
+        <nullif>JB_PREDICCIONVENTAS</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -691,31 +562,19 @@ generar la dimensión de tiempos</note>
         <currency/>
         <decimal/>
         <group/>
-        <nullif>TRANSFORMACION PARA CARGAR EXTRACTO DE DETALLE DE FACTURAS</nullif>
+        <nullif>JOB QUE EJECUTA ALGORITMO DE PREDICCION DE VENTAS</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
-        <name>ID_ESTADO_INICIAL</name>
+        <name>ID_ESTADO</name>
         <type>String</type>
         <format/>
         <currency/>
         <decimal/>
         <group/>
         <nullif>EN PROCESO</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>ID_ESTADO_FINAL</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>FINALIZADO</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -741,8 +600,8 @@ generar la dimensión de tiempos</note>
     </GUI>
   </step>
   <step>
-    <name>cleanTable</name>
-    <type>ExecSQL</type>
+    <name>getIDRegistro</name>
+    <type>RandomValue</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -751,19 +610,12 @@ generar la dimensión de tiempos</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>DB_DW</connection>
-    <execute_each_row>N</execute_each_row>
-    <single_statement>N</single_statement>
-    <replace_variables>N</replace_variables>
-    <quoteString>N</quoteString>
-    <sql>DELETE FROM EXT_DETALLEFACTURAS</sql>
-    <set_params>N</set_params>
-    <insert_field/>
-    <update_field/>
-    <delete_field/>
-    <read_field/>
-    <arguments>
-    </arguments>
+    <fields>
+      <field>
+        <name>ID_PROCESOGENERAL</name>
+        <type>random uuid</type>
+      </field>
+    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -773,61 +625,13 @@ generar la dimensión de tiempos</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>200</xloc>
-      <yloc>250</yloc>
+      <xloc>325</xloc>
+      <yloc>125</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>getData</name>
-    <type>DBJoin</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>DB_DW</connection>
-    <rowlimit>0</rowlimit>
-    <sql>SELECT *
-FROM (
-	SELECT 
-		CVE_DOC NUMERO_DOCUMENTO,
-		NUM_PAR NUMERO_REGISTRO,
-		CVE_ART CODIGO_ARTICULO,
-		TIPO_PROD TIPO_PRODUCTO,
-		CANT CANTIDAD,
-		UNI_VENTA UNIDAD,
-		COST COSTO,
-		PREC PRECIO,
-		(CANT * PREC) SUBTOTAL,
-		TOTIMP4 IVA,
-		((CANT * PREC)*(DESC1/100)) DESCUENTO,
-		(((CANT * PREC) - ((CANT * PREC)*(DESC1/100))) + TOTIMP4) TOTAL
-	FROM TB_PAR_FACTF02 
-)</sql>
-    <outer_join>N</outer_join>
-    <replace_vars>N</replace_vars>
-    <parameter>
-    </parameter>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>450</xloc>
-      <yloc>250</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>getDateSystem</name>
+    <name>getSysDate</name>
     <type>SystemInfo</type>
     <description/>
     <distribute>Y</distribute>
@@ -852,131 +656,7 @@ FROM (
       </output>
     </remotesteps>
     <GUI>
-      <xloc>325</xloc>
-      <yloc>250</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>getIDRegistro</name>
-    <type>RandomValue</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>ID_PROCESOESPECIFICO</name>
-        <type>random uuid</type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>450</xloc>
-      <yloc>125</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>getId</name>
-    <type>RandomValue</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>IDREGISTRO</name>
-        <type>random uuid</type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>575</xloc>
-      <yloc>250</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>getSysDateEnd</name>
-    <type>SystemInfo</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>SYSDATE_END</name>
-        <type>system date (variable)</type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>825</xloc>
-      <yloc>125</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>getSysDatesStar</name>
-    <type>SystemInfo</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>SYSDATE_START</name>
-        <type>system date (variable)</type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>325</xloc>
+      <xloc>200</xloc>
       <yloc>125</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1006,7 +686,7 @@ FROM (
       </key>
       <value>
         <name>BI_ID_REGISTRO</name>
-        <rename>ID_PROCESOESPECIFICO</rename>
+        <rename>ID_PROCESOGENERAL</rename>
         <update>N</update>
       </value>
       <value>
@@ -1016,7 +696,7 @@ FROM (
       </value>
       <value>
         <name>BI_ID_FECHA_REGISTRO</name>
-        <rename>SYSDATE_START</rename>
+        <rename>SYSDATE</rename>
         <update>N</update>
       </value>
       <value>
@@ -1031,10 +711,44 @@ FROM (
       </value>
       <value>
         <name>BI_ID_ESTADO</name>
-        <rename>ID_ESTADO_INICIAL</rename>
+        <rename>ID_ESTADO</rename>
         <update>N</update>
       </value>
     </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>450</xloc>
+      <yloc>125</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>setVariables</name>
+    <type>SetVariable</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <field_name>ID_PROCESOGENERAL</field_name>
+        <variable_name>V_ID_PROCESOGENERAL</variable_name>
+        <variable_type>ROOT_JOB</variable_type>
+        <default_value/>
+      </field>
+    </fields>
+    <use_formatting>Y</use_formatting>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1046,243 +760,6 @@ FROM (
     <GUI>
       <xloc>575</xloc>
       <yloc>125</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>poblarExtDetalleFacturas</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>DB_DW</connection>
-    <commit>100</commit>
-    <update_bypassed>Y</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>EXT_DETALLEFACTURAS</table>
-      <key>
-        <name>IDREGISTRO</name>
-        <field>BI_ID_REGISTRO</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>NUMERO_DOCUMENTO</name>
-        <rename>CVE_DOC</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>NUMERO_REGISTRO</name>
-        <rename>NUM_PAR</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>CODIGO_ARTICULO</name>
-        <rename>CVE_ART</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>TIPO_PRODUCTO</name>
-        <rename>TIPO_PROD</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>CANTIDAD</name>
-        <rename>CANT</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>UNIDAD</name>
-        <rename>UNI_VENTA</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>COSTO</name>
-        <rename>COST</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>PRECIO</name>
-        <rename>PREC</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>SUBTOTAL</name>
-        <rename>Field10</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>IVA</name>
-        <rename>TOTIMP4</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>DESCUENTO</name>
-        <rename>Field12</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>TOTAL</name>
-        <rename>Field13</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>BI_ID_REGISTRO</name>
-        <rename>IDREGISTRO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>BI_ID_FECHA_REGISTRO</name>
-        <rename>SYSDATE</rename>
-        <update>N</update>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>700</xloc>
-      <yloc>250</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>updateLog</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>DB_DW</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>LOG</table>
-      <key>
-        <name>ID_PROCESOESPECIFICO</name>
-        <field>BI_ID_REGISTRO</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>BI_ID_REGISTRO</name>
-        <rename>ID_PROCESOESPECIFICO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>BI_ID_REGISTRO_PRINCIPAL</name>
-        <rename>ID_PROCESOGENERAL</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>BI_ID_FECHA_REGISTRO</name>
-        <rename>SYSDATE_START</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>BI_ID_FECHA_FINALIZADO</name>
-        <rename>SYSDATE_END</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>BI_ID_PROCESO</name>
-        <rename>ID_PROCESO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>BI_ID_MESSAGE</name>
-        <rename>ID_MENSAJE</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>BI_ID_ESTADO</name>
-        <rename>ID_ESTADO_FINAL</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>950</xloc>
-      <yloc>125</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>waitStep</name>
-    <type>BlockUntilStepsFinish</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <steps>
-      <step>
-        <name>Dummy</name>
-        <CopyNr>0</CopyNr>
-      </step>
-    </steps>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>700</xloc>
-      <yloc>125</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Dummy</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>150</xloc>
-      <yloc>325</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
